@@ -1,6 +1,7 @@
 import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
+import { Button } from "@repo/ui/button/button";
 import styles from "./page.module.css";
+import { Hello } from "@repo/ui/hello/hello";
 
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
@@ -18,10 +19,15 @@ const ThemeImage = (props: Props) => {
   );
 };
 
-export default function Home() {
+export default async function Home() {
+  const response = await fetch("http://localhost:3001/sup/server-side-next", { cache: "no-store" });
+  const { message } = await response.json();
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <Hello who="foonty" />
+        <p>Server Side Message: {message}</p>
         <ThemeImage
           className={styles.logo}
           srcLight="turborepo-dark.svg"
