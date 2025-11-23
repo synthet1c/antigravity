@@ -1,9 +1,10 @@
 import { brands, Brand } from '../../../../lib/brands';
 import { notFound } from 'next/navigation';
 import styles from './brand-page.module.css';
-import { Hello } from '@repo/ui/hello/hello';
+import { Hello } from '@repo/ui/hello';
 import React, { Suspense } from 'react';
-import { ColorBox } from '@repo/ui/colorBox/colorBox';
+import { ColorBox } from '@repo/ui/colorBox';
+import { Button } from '@repo/ui/button';
 import Link from 'next/link';
 
 export default async function BrandPage({
@@ -58,6 +59,7 @@ export default async function BrandPage({
                     <h2 className={styles.themeHeading}>Theme Preview</h2>
                     <div className={styles.themePreviewContainer}>
                         <h3>Primary Colors</h3>
+                        <Button theme="primary" size="small">Button</Button>
                         <div className={styles.themePreviewColors}>
                             <ColorBox background='var(--primary)' name='Primary' />
                             <ColorBox background='var(--primary-alt-1)' name='Primary Alt Two' />

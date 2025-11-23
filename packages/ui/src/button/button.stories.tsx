@@ -63,3 +63,13 @@ export const Default: Story = {
     },
 };
 
+export const PrimaryAltTwo: Story = {
+    args: {
+        appName: 'Antigravity',
+        children: 'Click me',
+        theme: 'primary-alt-2',
+        size: 'medium',
+        block: false,
+    },
+};
+

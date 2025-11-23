@@ -6,6 +6,7 @@ import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { Card } from '@repo/ui/card';
 import { Button } from '@repo/ui/button';
+import { InteractiveButton } from './components/interactive-button';
 
 export default async function BrandPage({
     params,
@@ -59,21 +60,21 @@ export default async function BrandPage({
                     <Card.v1
                         className={styles.card}
                         title="Card Version 1"
-                        footer={<Button>Button</Button>}
+                        footer={<InteractiveButton>Button</InteractiveButton>}
                     >
                         <p>Card one content</p>
                     </Card.v1>
                     <Card
                         className={styles.card}
                         title="Card Version 2"
-                        footer={<Button>Button</Button>}
+                        footer={<Button theme="primary-alt-1">Button</Button>}
                     >
                         <p>Card two content</p>
                     </Card>
                     <Card
                         className={styles.card}
                         title="Card Version 2"
-                        footer={<Button theme="secondary">Button</Button>}
+                        footer={<Button theme="primary-alt-2">Button</Button>}
                     >
                         <p>Card three content</p>
                     </Card>
