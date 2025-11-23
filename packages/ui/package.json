@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx",
+    "./*": "./src/*",
+    "./card": "./src/card/index.ts",
+    "./button": "./src/button/button.tsx",
+    "./hello": "./src/hello/hello.tsx",
     "./hooks": "./src/hooks/index.ts"
   },
   "scripts": {

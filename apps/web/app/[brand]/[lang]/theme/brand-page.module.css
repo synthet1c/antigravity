@@ -63,12 +63,3 @@
 .description {
     color: var(--text);
 }
-
-.cards {
-    display: flex;
-    gap: 1rem;
-}
-
-.card {
-    flex: 1;
-}

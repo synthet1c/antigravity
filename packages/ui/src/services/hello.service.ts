@@ -2,11 +2,11 @@ import { cache } from "react";
 
 class _HelloService {
 
-    get = async ({ who }: { who: string }) => {
+    get = cache(async ({ who }: { who: string }) => {
         return fetch(`http://localhost:3001/sup/${who}`)
             .then(res => res.json())
             .then(data => data.message)
-    }
+    })
 
     getHello = cache(async (who: string): Promise<string> => {
         const res = await fetch(`http://localhost:3001/sup/${who}`, {

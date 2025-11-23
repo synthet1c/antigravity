@@ -1,0 +1,30 @@
+.button {
+    --button-color: var(--white);
+    --button-background: var(--primary);
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--button-background);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button--small {
+    padding: 0.5rem 1.5rem;
+}
+
+.button--medium {
+    padding: 1rem 2rem;
+}
+
+.button--large {
+    padding: 1.5rem 3rem;
+}
+
+.button--block {
+    width: 100%;
+}
+
+.buttonInner {
+    color: var(--button-color);
+}
