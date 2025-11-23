@@ -51,29 +51,29 @@ export default async function BrandPage({
 
             <main className={styles.main}>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <Hello who="foonty" />
+                    <Hello who="foonta" />
                 </Suspense>
                 <h2 className={styles.welcome}>{t('welcome')}</h2>
                 <p className={styles.description}>{t('description')}</p>
                 <section className={styles.cards}>
                     <Card.v1
                         className={styles.card}
-                        title="Card Title"
+                        title="Card Version 1"
                         footer={<Button>Button</Button>}
                     >
                         <p>Card one content</p>
                     </Card.v1>
                     <Card
                         className={styles.card}
-                        title="Card Title"
+                        title="Card Version 2"
                         footer={<Button>Button</Button>}
                     >
                         <p>Card two content</p>
                     </Card>
                     <Card
                         className={styles.card}
-                        title="Card Title"
-                        footer={<Button>Button</Button>}
+                        title="Card Version 2"
+                        footer={<Button theme="secondary">Button</Button>}
                     >
                         <p>Card three content</p>
                     </Card>

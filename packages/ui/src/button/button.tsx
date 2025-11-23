@@ -1,3 +1,5 @@
+"use client";
+
 import cn from "classnames";
 import styles from "./button.module.css";
 import { ReactNode, ButtonHTMLAttributes, CSSProperties } from "react";
@@ -61,6 +63,7 @@ export const Button = ({
           [styles['button--block'] as string]: block,
         }
       ])}
+      onClick={() => alert('hello')}
       style={{
         ...style,
         '--button-background': themes[theme],
