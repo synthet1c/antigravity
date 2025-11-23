@@ -1,3 +1,8 @@
+import { theme as spotlightTheme } from './brands/spotlight/theme';
+import { theme as anacondaTheme } from './brands/anaconda/theme';
+import { theme as harrisscarfeTheme } from './brands/harrisscarfe/theme';
+import { theme as kooTheme } from './brands/koo/theme';
+
 export type Brand = 'spotlight' | 'harrisscarfe' | 'anaconda' | 'koo';
 
 export interface BrandConfig {
@@ -5,52 +10,45 @@ export interface BrandConfig {
     locales: string[];
     theme: {
         primary: string;
+        primaryAltTwo: string;
+        primaryAltThree: string;
         secondary: string;
+        secondaryAltTwo: string;
+        secondaryAltThree: string;
+        secondaryAltFour: string;
+        secondaryAltFive: string;
+        focusSuccess: string;
+        focusSuccessLight: string;
+        focusBlue: string;
         background: string;
         text: string;
+        blue: string;
+        green: string;
+        orange: string;
+        red: string;
+        white: string;
+        black: string;
     };
 }
 
+
+
 export const brands: Record<Brand, BrandConfig> = {
-    spotlight: {
-        name: 'Spotlight',
-        locales: ['au', 'nz', 'sg', 'my'],
-        theme: {
-            primary: '#00549E', // Example blue
-            secondary: '#E31837', // Example red
-            background: '#ffffff',
-            text: '#333333',
-        },
-    },
+    spotlight: spotlightTheme,
     harrisscarfe: {
         name: 'Harris Scarfe',
         locales: ['au'],
-        theme: {
-            primary: '#000000',
-            secondary: '#d4af37', // Goldish
-            background: '#f9f9f9',
-            text: '#1a1a1a',
-        },
+        theme: harrisscarfeTheme,
     },
     anaconda: {
         name: 'Anaconda',
         locales: ['au'],
-        theme: {
-            primary: '#E65300', // Orange
-            secondary: '#4B5563',
-            background: '#ffffff',
-            text: '#111827',
-        },
+        theme: anacondaTheme,
     },
     koo: {
         name: 'Koo',
         locales: ['au'],
-        theme: {
-            primary: '#6B7280', // Grey
-            secondary: '#10B981', // Green
-            background: '#fafafa',
-            text: '#1f2937',
-        },
+        theme: kooTheme,
     },
 };
 
