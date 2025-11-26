@@ -13,4 +13,6 @@ describe('Navigation', () => {
         // cy.get('h1').contains('About Page')
         cy.get('h1').should('exist');
     })
-})
+
+
+});

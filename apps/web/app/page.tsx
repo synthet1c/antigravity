@@ -26,6 +26,7 @@ export default function Home() {
                 <Link
                   key={locale}
                   href={`/${key}/${locale}`}
+                  data-test-id={`locale_link_${key}_${locale}`}
                   style={{
                     textDecoration: 'none',
                     backgroundColor: '#f3f4f6',
