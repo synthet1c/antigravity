@@ -1,0 +1,20 @@
+# Repository Layout for LLM Analysis
+
+## Top-level orchestration
+- `package.json` governs workspaces (`apps/*`, `packages/*`), exposes turbo commands (`build`, `dev`, `lint`, `format`, `check-types`), and locks to `bun@1.3.3` with shared dependencies (`classnames`, `i18next`, `react-i18next`).
+- `turbo.json` wires up task dependencies, cache/outputs for `build`, and dev/live settings for `dev` so the CLI understands how all packages relate.
+- `bun.lock` preserves the resolved dependency graph for reproducible installs across every workspace in this monorepo.
+
+## Apps workspace (`apps/`)
+- `api`: a NestJS backend in `apps/api/src` (`main.ts`, `app.module.ts`, controller/service pair) with Jest for unit/e2e tests and TypeScript build outputs in `dist/`. Docker-style scripts (`build`, `dev`, `start:prod`, etc.) are in its `package.json`.
+- `web`: a Next.js 16+ app that lives under `apps/web/app` (brand assets, layout, page), relies on `apps/web/lib` for `ThemeProvider`, brand metadata, and translations, and connects to shared UI components from `@repo/ui`. ESLint/Next configs live at `apps/web/eslint.config.js`, `next.config.js`, and workspace-level `tsconfig.json`.
+- `web-e2e`: Cypress-powered end-to-end tests in `apps/web-e2e/cypress` with runner settings in `cypress.config.ts`; scripts `test:e2e` and `open` drive automated or interactive suites.
+
+## Packages workspace (`packages/`)
+- `ui`: lightweight React component library and Storybook; `package.json` exports named entrypoints (`card`, `button`, `hello`, `hooks`, `colorBox`), and scripts support linting, type checking, Storybook development, and build.
+- `eslint-config`: bundling of reusable ESLint rules (`base.js`, `next.js`, `react-internal.js`) that apps import via `@repo/eslint-config`. Node-style exports let the `web` app run `eslint` with consistent settings.
+- `typescript-config`: shared `tsconfig` presets (`base.json`, `nextjs.json`, `react-library.json`) keep type checking aligned across apps and packages, with this package serving as the canonical importable config provider.
+
+## Practical signals for the LLM
+- `node_modules/` exists per workspace after `bun install`, but build/test commands should target each workspace via `turbo` filters (`turbo dev --filter=web`, `turbo run build --filter=api`, etc.).
+- The repo is purely TypeScript/Node (Nest+Next+Cypress+React), so referencing `package.json` scripts and the `apps/` layout gives the clearest sense of intent for both backend and frontend changes.
